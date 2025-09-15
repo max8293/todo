@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kirjaudu sisään</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">To-Do</div>
+      <ul class="nav-links">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <div class="login-wrapper">
+        <!-- Info alue -->
+        <div class="info-card">
+          <h2>Tervetuloa To-Do sovellukseen!</h2>
+          <p>
+            Hallitse tehtäviäsi helposti ja tehokkaasti. Lisää uusia tehtäviä,
+            merkitse ne tehdyiksi ja pidä kaikki järjestyksessä yhdellä
+            silmäyksellä.
+          </p>
+        </div>
+
+        <!-- Login formi -->
+        <div class="auth-card">
+          <h2>Kirjaudu sisään</h2>
+          <form class="auth-form" action="../php/login.php" method="POST">
+            <input
+              type="text"
+              name="username"
+              placeholder="Käyttäjänimi"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Salasana"
+              required
+            />
+            <button type="submit">Kirjaudu</button>
+          </form>
+          <p class="redirect">
+            Jos sinulla ei ole tiliä, <a href="register.html">rekisteröidy</a>.
+          </p>
+          <p class="redirect">
+            Lue <a href="privacy.html">tietosuojakäytäntö</a>.
+          </p>
+        </div>
+      </div>
+
+      <p id="error-msg" style="color: red"></p>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const errorMsg = document.getElementById("error-msg");
+
+      if (params.get("error") === "wrong_password") {
+        errorMsg.textContent = "Virheellinen salasana!";
+      } else if (params.get("error") === "user_not_found") {
+        errorMsg.textContent = "Käyttäjätunnus ei löydy!";
+      } else if (params.get("error") === "empty_fields") {
+        errorMsg.textContent = "Täytä kaikki kentät!";
+      }
+    </script>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

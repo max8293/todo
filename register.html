@@ -1,0 +1,67 @@
+<!-- <!DOCTYPE html>
+<html lang="fi">s
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rekisteröidy</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h2>Rekisteröidy</h2>
+    lomake, joka lähettää käyttäjänimen ja salasanan register.php-tiedostoon 
+ <form action="../php/register.php" method="POST">
+      <label>Käyttäjänimi:</label><br />
+      <input type="text" name="username" required /><br /><br />
+
+      <label>Salasana:</label><br />
+      <input type="password" name="password" required /><br /><br />
+
+      <button type="submit">Rekisteröidy</button>
+    </form>
+    <p>Jos sinulla on jo tili, <a href="login.html">kirjaudu sisään</a>.</p>
+  </body>
+</html>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">To-Do</div>
+      <ul class="nav-links">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <div class="auth-card">
+        <h2>Luo tili</h2>
+        <form class="auth-form" action="../php/register.php" method="POST">
+          <input type="text" name="username" placeholder="Username" required />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Rekisteröidy</button>
+        </form>
+        <p class="redirect">
+          Onko sinulla jo tili? <a href="login.html">Kirjaudu</a>
+        </p>
+        <p class="redirect">
+          Lue <a href="privacy.html">tietosuojakäytäntö</a>.
+        </p>
+      </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>
