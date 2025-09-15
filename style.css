@@ -36,7 +36,7 @@ body {
 }
 
 .nav-links li a {
-  padding: 0.3rem 0.5rem; /* optional: gives more clickable area */
+  padding: 0.3rem 0.5rem;
 }
 
 .nav-links a {
@@ -45,18 +45,17 @@ body {
   font-weight: 500;
 }
 
-/* Main container for auth/login pages */
+/* Main container for tasks */
 main.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 70px); /* accounts for navbar height */
-  padding: 2rem;
+  justify-content: flex-start; /* changed from center */
+  align-items: flex-start;     /* changed from center */
   flex-direction: column;
+  min-height: auto;            /* let content determine height */
+  padding: 2rem;
 }
 
-/* Auth and login cards */
-.auth-card,
+/* To-Do card */
 .todo-card {
   background: rgba(255, 255, 255, 0.7);
   padding: 2rem;
@@ -67,22 +66,19 @@ main.container {
   backdrop-filter: blur(15px);
 }
 
-.auth-card h2,
 .todo-card h2 {
   margin-bottom: 1rem;
   font-size: 1.6rem;
   text-align: center;
 }
 
-/* Form styling */
-.auth-form,
+/* To-Do form */
 .todo-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.auth-form input,
 .todo-form input {
   padding: 0.75rem;
   border: 1px solid #ddd;
@@ -90,12 +86,10 @@ main.container {
   outline: none;
 }
 
-.auth-form input:focus,
 .todo-form input:focus {
   border-color: #8c5e3c;
 }
 
-.auth-form button,
 .todo-form button {
   padding: 0.75rem;
   background-color: #8c5e3c;
@@ -107,24 +101,8 @@ main.container {
   margin-bottom: 2rem;
 }
 
-.auth-form button:hover,
 .todo-form button:hover {
   background-color: #6e4b2f;
-}
-
-/* Redirect text */
-.redirect {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.redirect a {
-  color: #8c5e3c;
-  text-decoration: none;
-}
-
-.redirect a:hover {
-  text-decoration: underline;
 }
 
 /* To-Do list */
@@ -157,6 +135,27 @@ main.container {
   background-color: #580000;
 }
 
+/* Redirect text */
+.redirect {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.redirect a {
+  color: #8c5e3c;
+  text-decoration: none;
+}
+
+.redirect a:hover {
+  text-decoration: underline;
+}
+
+/* Completed tasks */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .navbar {
@@ -164,20 +163,16 @@ main.container {
     align-items: flex-start;
   }
 
-  .auth-form input,
-  .auth-form button,
   .todo-form input,
   .todo-form button {
     width: 100%;
   }
 
   main.container {
-    min-height: auto; /* changed from height to min-height */
     padding: 1rem;
   }
-}
 
-.completed {
-  text-decoration: line-through;
-  opacity: 0.6;
+  .todo-card {
+    max-width: 100%;
+  }
 }
