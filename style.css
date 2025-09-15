@@ -48,11 +48,11 @@ body {
 /* Main container for tasks */
 main.container {
   display: flex;
-  justify-content: flex-start; /* changed from center */
-  align-items: flex-start;     /* changed from center */
-  flex-direction: column;
-  min-height: auto;            /* let content determine height */
+  justify-content: center; /* horizontally center */
+  align-items: center;     /* vertically center */
+  min-height: calc(100vh - 70px);
   padding: 2rem;
+  flex-direction: column;
 }
 
 /* To-Do card */
@@ -169,6 +169,7 @@ main.container {
   }
 
   main.container {
+    min-height: auto;
     padding: 1rem;
   }
 
